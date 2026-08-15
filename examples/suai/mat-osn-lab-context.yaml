@@ -1,0 +1,28 @@
+kind: lab
+title: "Mathematical foundations lab 1"
+subject: "Mathematical foundations of control systems"
+variant: null
+objective: ""
+inputs:
+  methodology: "external repository: pank-suai/mat_osn_lab_1"
+  data_files: []
+  source_files: []
+requirements:
+  code: false
+  mathematics: true
+  report: true
+  tests: false
+  figures: true
+  tables: true
+constraints:
+  language: "python or notebook, if required by the methodology"
+  libraries: []
+  tools: [jupyter]
+  file_formats: [typst]
+  forbidden_tools: []
+deliverables:
+  files: [report, calculations, figures, tables]
+  report_format: typst
+  report_sections: []
+open_questions:
+  - "Read the actual methodology before solving; the repository snapshot alone is not a complete task specification."

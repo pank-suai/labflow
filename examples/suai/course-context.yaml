@@ -1,0 +1,28 @@
+kind: coursework
+title: "Course project"
+subject: ""
+variant: null
+objective: ""
+inputs:
+  methodology: "external repository: pank-suai/course"
+  data_files: []
+  source_files: []
+requirements:
+  code: true
+  mathematics: false
+  report: true
+  tests: true
+  figures: false
+  tables: false
+constraints:
+  language: ""
+  libraries: []
+  tools: []
+  file_formats: [typst]
+  forbidden_tools: []
+deliverables:
+  files: [report]
+  report_format: typst
+  report_sections: []
+open_questions:
+  - "Replace the placeholder with the actual course-project brief and requirements."
