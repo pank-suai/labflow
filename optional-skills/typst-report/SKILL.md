@@ -1,81 +1,90 @@
 ---
 name: typst-report
-description: Create and compile neutral GOST-based Typst reports.
-version: 0.1.0
+description: Generate a complete context-driven Typst report structure.
+version: 0.2.0
 author: Vasilii Pankov (pank-su), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [typst, reports, gost, assignments]
-    related_skills: [assignment-report, assignment-self-review]
+    tags: [typst, reports, gost, assignments, templates]
+    related_skills: [assignment-context, assignment-report, assignment-self-review]
 ---
 
 # Typst Report
 
-Optional report adapter for labflow. It creates a small, neutral GOST-based
-Typst skeleton and compiles it when the Typst CLI is available. The adapter is
-not tied to a university, faculty, course, logo, or assignment template.
+Optional report adapter for labflow. It uses one shared Typst structure derived
+from a course project and a mathematical foundations lab. The initializer reads
+the assignment context and creates the complete project skeleton; the agent does
+not invent title-page metadata, directories, or section names.
 
 ## When to Use
 
 - The assignment requests a Typst report.
-- A project needs a basic GOST-style report skeleton before a local adapter is added.
+- A project needs a repeatable GOST-style baseline without a university-specific template.
 
-Do not use it when the source requires a different format or an institution-specific template.
+Do not use it when an institutional template is explicitly required and must be preserved.
 
 ## Prerequisites
 
+- `context/context.yaml` created by `assignment-context`.
 - Python 3.10+ for the initializer script.
-- Typst CLI only for compilation; initialization works without Typst installed.
+- Typst CLI for compilation; initialization itself does not require Typst.
 
 ## How to Run
 
-From the repository root, run through the `terminal` tool:
+Run the initializer from the project root through the `terminal` tool:
 
 ```bash
 python optional-skills/typst-report/scripts/init_typst.py \
-  --output-dir . \
-  --kind lab \
-  --title "Work title" \
-  --subject "Subject" \
-  --author "Student Name" \
-  --group "Group"
+  --context context/context.yaml \
+  --output-dir .
 ```
 
-Compile after filling the report:
+Compile the generated report:
 
 ```bash
 typst compile docs/index.typ docs/report.pdf
 ```
 
-## Quick Reference
+Use `--force` only when the generated files may be replaced intentionally. The
+script never deletes user files and never fabricates missing metadata.
 
-- `--kind lab` — laboratory work.
-- `--kind coursework` — course project.
-- `--kind practical` — practical or calculation work.
-- `--force` — replace generated files; never use it on a filled report without a backup.
-- `--university`, `--faculty`, `--department`, `--city` — optional metadata.
+## Generated Structure
+
+```text
+docs/
+├── index.typ
+├── content.typ
+└── lib/
+    ├── context.typ
+    ├── gost.typ
+    └── titlepage.typ
+
+artifacts/
+data/
+images/
+math/
+src/
+tests/
+```
 
 ## Procedure
 
-1. Run `init_typst.py` with metadata known from the assignment.
-2. Read `docs/index.typ` and replace the generated section placeholders with real content.
-3. Keep calculations, code, figures, and raw outputs in their logical artifact directories.
-4. Compile with Typst.
-5. Pass the output to `assignment-self-review`.
+1. Run `assignment-context` and resolve blocking questions first.
+2. Run `init_typst.py --context context/context.yaml --output-dir .`.
+3. Fill `docs/content.typ` from `context/TASK.md`, code, mathematics, and real artifacts.
+4. Keep `docs/lib/context.typ`, `gost.typ`, and `titlepage.typ` as generated infrastructure unless the adapter itself must be extended.
+5. Compile the report with Typst.
+6. Pass the complete project to `assignment-self-review` for code, requirements, mathematics, and visual review.
 
-Completion criterion: `docs/index.typ` exists, all referenced files exist, and
-compilation succeeds when a Typst installation is available.
+Completion criterion: the script creates every listed directory and file from the
+context, and the generated report compiles after its explicit placeholders are filled.
 
 ## Rules
 
-- Do not invent student, university, or assignment metadata.
-- The template is a starting point, not a substitute for source requirements.
-- Keep GOST conventions in the adapter; keep workflow logic in core skills.
-- Do not claim a PDF was created if Typst was unavailable or compilation failed.
-
-## Self-Review Handoff
-
-Run `typst compile docs/index.typ docs/report.pdf`, then confirm that the PDF is
-non-empty and that required sections, figures, tables, and formulas are present.
+- The context is the only source for title-page metadata.
+- Missing metadata remains empty; it is never replaced with GUAP, a group, a teacher, a city, or a date by default.
+- Section names come from `deliverables.report_sections` when provided; otherwise the script uses only the shared lab/coursework outline.
+- Do not place university-specific behavior in the core template.
+- Do not claim a PDF exists unless Typst compilation succeeded.

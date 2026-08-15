@@ -29,7 +29,9 @@ does not implement the solution or write the final report.
 3. Identify the objective, tasks, variant, inputs, constraints, algorithms, and deliverables.
 4. Separate explicit requirements from assumptions and unresolved questions.
 5. Write `context/TASK.md` in human-readable form.
-6. Write `context/context.yaml` using `references/context-schema.md`.
+6. Write `context/context.yaml` with the following stable top-level fields:
+   `kind`, `title`, `subject`, `variant`, `objective`, `inputs`, `requirements`,
+   `constraints`, `deliverables`, and `open_questions`.
 7. Write `context/open_questions.md`; use an empty list when nothing is missing.
 8. Create a requirement checklist mapping each requirement to a planned artifact.
 
@@ -52,6 +54,11 @@ context/requirements-checklist.md
 
 Completion means each explicit requirement has an identifier and a planned
 review method. Unknown values must appear in `open_questions.md`.
+
+The context is the only source for report metadata. It may include optional
+metadata such as `author`, `group`, `university`, `faculty`, `department`,
+`teacher`, and `city`. Empty or missing values must remain empty; neither the
+agent nor a generator may invent them.
 
 ## Self-Review Handoff
 
