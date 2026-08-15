@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [assignments, requirements, planning, context]
-    related_skills: [assignment-workflow]
+    related_skills: [assignment-workflow, assignment-self-review]
 ---
 
 # Assignment Context
@@ -51,9 +51,9 @@ context/requirements-checklist.md
 ```
 
 Completion means each explicit requirement has an identifier and a planned
-verification method. Unknown values must appear in `open_questions.md`.
+review method. Unknown values must appear in `open_questions.md`.
 
-## Verification
+## Self-Review Handoff
 
 Compare the checklist against the original source. Confirm that every required
 input, output, restriction, and report section appears in the generated context.

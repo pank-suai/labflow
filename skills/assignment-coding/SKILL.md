@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [assignments, coding, testing, reproducibility]
-    related_skills: [assignment-workflow, assignment-context, assignment-verification]
+    related_skills: [assignment-workflow, assignment-context, assignment-self-review]
 ---
 
 # Assignment Coding
@@ -54,7 +54,7 @@ artifacts/test-results.txt
 artifacts/code-results.md
 ```
 
-## Verification
+## Self-Review Handoff
 
 Re-run the documented build and test commands from a clean state. Confirm that
 all code-related checklist items point to a real file and a real execution result.

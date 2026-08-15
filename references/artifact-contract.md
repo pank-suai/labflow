@@ -1,6 +1,6 @@
 # Artifact contract
 
-Labflow separates context, implementation, calculations, report sources, and verification.
+Labflow separates context, implementation, calculations, report sources, and self-review.
 
 ## Required logical artifacts
 
@@ -9,11 +9,11 @@ Labflow separates context, implementation, calculations, report sources, and ver
 | `context/TASK.md` | Human-readable assignment requirements |
 | `context/context.yaml` | Machine-readable context |
 | `context/open_questions.md` | Missing or contradictory information |
-| `context/requirements-checklist.md` | Requirement-to-verification map |
+| `context/requirements-checklist.md` | Requirement-to-review map |
 | `artifacts/` | Raw execution outputs and logs |
 | `math/` | Reproducible calculations and figures |
 | `report/` | Report sources and compiled outputs |
-| `VERIFICATION.md` | Independent quality gate |
+| `SELF_REVIEW.md` | Fresh-agent review and quality gate |
 
 Directories are logical, not mandatory. A project may configure different paths in `context.yaml`.
 
@@ -25,6 +25,6 @@ Every important report claim must point to at least one of:
 - A code file plus execution log;
 - A notebook or calculation script plus output;
 - A generated table or figure;
-- A verification command.
+- A review command.
 
 The report must not be the only place where a result exists.

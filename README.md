@@ -11,14 +11,14 @@ Labflow не содержит требований конкретного вуз
 - `assignment-coding` — реализация и проверка программной части.
 - `assignment-math` — воспроизводимые вычисления, формулы, графики и таблицы.
 - `assignment-report` — сборка отчёта из проверенных артефактов.
-- `assignment-verification` — независимая проверка результата.
+- `assignment-self-review` — self-review через отдельного subagent.
 - `typst-report` — optional skill для создания отчётов Typst по одному базовому GOST-шаблону.
 
 ## Базовый запуск
 
 1. Загрузить методичку и исходные данные в проект;
 2. Запустить `assignment-workflow`;
-3. Получить `context/TASK.md`, код, вычисления, артефакты, отчёт и `VERIFICATION.md`.
+3. Получить `context/TASK.md`, код, вычисления, артефакты, отчёт и `SELF_REVIEW.md`.
 
 ## Optional typst
 

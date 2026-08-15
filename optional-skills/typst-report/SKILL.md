@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [typst, reports, gost, assignments]
-    related_skills: [assignment-report, assignment-verification]
+    related_skills: [assignment-report, assignment-self-review]
 ---
 
 # Typst Report
@@ -63,7 +63,7 @@ typst compile docs/index.typ docs/report.pdf
 2. Read `docs/index.typ` and replace the generated section placeholders with real content.
 3. Keep calculations, code, figures, and raw outputs in their logical artifact directories.
 4. Compile with Typst.
-5. Pass the output to `assignment-verification`.
+5. Pass the output to `assignment-self-review`.
 
 Completion criterion: `docs/index.typ` exists, all referenced files exist, and
 compilation succeeds when a Typst installation is available.
@@ -75,7 +75,7 @@ compilation succeeds when a Typst installation is available.
 - Keep GOST conventions in the adapter; keep workflow logic in core skills.
 - Do not claim a PDF was created if Typst was unavailable or compilation failed.
 
-## Verification
+## Self-Review Handoff
 
 Run `typst compile docs/index.typ docs/report.pdf`, then confirm that the PDF is
 non-empty and that required sections, figures, tables, and formulas are present.

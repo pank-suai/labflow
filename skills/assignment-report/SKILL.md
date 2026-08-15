@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [assignments, reports, documentation, evidence]
-    related_skills: [assignment-workflow, assignment-context, assignment-coding, assignment-math, assignment-verification]
+    related_skills: [assignment-workflow, assignment-context, assignment-coding, assignment-math, assignment-self-review]
 ---
 
 # Assignment Report
@@ -50,8 +50,8 @@ report/requirements-matrix.md
 A compiled artifact such as `report/report.pdf` is required only when the
 assignment explicitly requests it or the selected adapter supports it.
 
-## Verification
+## Self-Review Handoff
 
 Check that every required section exists, every referenced file exists, and each
 important result points to a saved artifact or execution log. Hand off to
-`assignment-verification` instead of declaring success yourself.
+`assignment-self-review` instead of declaring success yourself.

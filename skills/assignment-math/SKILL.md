@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [assignments, mathematics, numerical-methods, data-analysis]
-    related_skills: [assignment-workflow, assignment-context, assignment-verification]
+    related_skills: [assignment-workflow, assignment-context, assignment-self-review]
 ---
 
 # Assignment Mathematics
@@ -49,7 +49,7 @@ math/results.csv       # when tabular results exist
 math/figures/          # when figures are required
 ```
 
-## Verification
+## Self-Review Handoff
 
 Run the notebook or script from a clean environment. Compare key values against
 an independent check, limiting case, or hand calculation when one is available.

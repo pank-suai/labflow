@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [assignments, labs, coursework, workflow, reproducibility]
-    related_skills: [assignment-context, assignment-coding, assignment-math, assignment-report, assignment-verification]
+    related_skills: [assignment-context, assignment-coding, assignment-math, assignment-report, assignment-self-review]
 ---
 
 # Assignment Workflow
@@ -38,7 +38,7 @@ Do not use it for a one-line calculation or an isolated code fix with no assignm
 2. Run `assignment-coding` when the context requires software or simulations.
 3. Run `assignment-math` when formulas, numerical methods, statistics, or data analysis are required.
 4. Run `assignment-report` when a report is requested or required.
-5. Always run `assignment-verification` before claiming completion.
+5. Always launch a fresh subagent with `assignment-self-review` before claiming completion.
 
 Use matching external skills for PDF extraction, a programming language, testing,
 Jupyter, Typst, LaTeX, DOCX, or PDF when they are available. Treat them as
@@ -77,19 +77,25 @@ Run `assignment-report`. Choose the requested format through an adapter; do not
 assume Typst, GOST, a title page, or a fixed directory layout.
 Completion criterion: the report references only existing artifacts and contains no invented results.
 
-### 6. Verify independently
+### 6. Run the self-review
 
-Run `assignment-verification`. Fix failures by returning to the responsible phase,
-then rerun verification.
-Completion criterion: `VERIFICATION.md` records all checks and the final status is `passed`.
+Use `delegate_task` to launch a fresh subagent with the `assignment-self-review`
+skill. Give it the workspace path, the assignment context, and permission to run
+read-only checks, tests, builds, and report rendering. The subagent must write
+`SELF_REVIEW.md` with findings and a final status.
+
+Fix every `changes_requested` finding in the responsible phase, then launch a
+new review subagent. Do not reuse the previous review as proof after changes.
+Completion criterion: `SELF_REVIEW.md` records the review scope, executed checks,
+visual inspection results, requirement coverage, and final status `passed`.
 
 ## Rules
 
 - Do not invent missing values, variants, execution results, or citations.
 - Prefer the assignment source and user-provided data over general knowledge.
-- Keep planning, implementation, mathematics, writing, and verification separate.
+- Keep planning, implementation, mathematics, writing, and self-review separate.
 - Preserve raw outputs so important claims can be checked.
-- Do not call an assignment complete without real execution and verification output.
+- Do not call an assignment complete without real execution and self-review output.
 - Never overwrite user files without an explicit reason and a recoverable copy.
 - If a specialist skill has stronger domain rules, follow those rules inside its phase.
 
@@ -98,7 +104,7 @@ Completion criterion: `VERIFICATION.md` records all checks and the final status 
 If a phase fails, preserve its logs, state the failing phase, and retry only after
 identifying the cause. Do not silently skip a failed compile, test, or calculation.
 
-## Verification
+## Completion
 
 The workflow is complete only when:
 
@@ -106,4 +112,4 @@ The workflow is complete only when:
 - All required code and mathematics artifacts exist;
 - Required commands or notebooks were executed;
 - The report format was compiled or rendered when applicable;
-- `VERIFICATION.md` contains no unresolved blocking failure.
+- `SELF_REVIEW.md` has final status `passed` and no unresolved blocking finding.
