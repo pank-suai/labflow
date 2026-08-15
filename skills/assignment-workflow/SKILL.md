@@ -80,14 +80,26 @@ Completion criterion: the report references only existing artifacts and contains
 ### 6. Run the self-review
 
 Use `delegate_task` to launch a fresh subagent with the `assignment-self-review`
-skill. Give it the workspace path, the assignment context, and permission to run
-read-only checks, tests, builds, and report rendering. The subagent must write
-`SELF_REVIEW.md` with findings and a final status.
+skill. Give it the exact workspace path and require four independent review
+dimensions: requirement coverage, code quality and behavior, mathematics and
+artifacts, and visual report appearance. The subagent must write `SELF_REVIEW.md`
+in that workspace.
 
-Fix every `changes_requested` finding in the responsible phase, then launch a
-new review subagent. Do not reuse the previous review as proof after changes.
-Completion criterion: `SELF_REVIEW.md` records the review scope, executed checks,
-visual inspection results, requirement coverage, and final status `passed`.
+After delegation, the parent agent must validate the review artifact with
+`skills/assignment-self-review/scripts/check_self_review.py`. Reject a missing,
+malformed, or misplaced file. If the status is `changes_requested`, fix every
+finding in the responsible phase and launch a new fresh review subagent. If the
+status is `blocked`, resolve the missing input or tool, ask the user when needed,
+or keep the assignment blocked. Never claim completion while it remains blocked.
+
+Generated PDFs, rendered images, test outputs, notebook caches, and logs may be
+written under a temporary directory or `artifacts/self-review/`. The subagent
+must not rewrite tracked source files, source data, notebooks, or report sources
+while reviewing them.
+
+Completion criterion: the parent validates `SELF_REVIEW.md` and it contains the
+required sections, executed checks, visual evidence, requirement coverage, and
+the literal line `Final Status: passed`.
 
 ## Rules
 

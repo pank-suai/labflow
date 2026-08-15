@@ -14,6 +14,11 @@ Labflow не содержит требований конкретного вуз
 - `assignment-self-review` — self-review через отдельного subagent.
 - `typst-report` — optional skill для создания отчётов Typst по одному базовому GOST-шаблону.
 
+`assignment-self-review` запускается отдельным subagent через `delegate_task` и
+проверяет покрытие требований, качество кода, математические артефакты и
+визуальное качество отчёта. Результат сохраняется в `SELF_REVIEW.md` и
+проверяется скриптом `skills/assignment-self-review/scripts/check_self_review.py`.
+
 ## Базовый запуск
 
 1. Загрузить методичку и исходные данные в проект;
