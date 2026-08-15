@@ -5,11 +5,11 @@ artifacts into a requested document format.
 
 ## Adapter responsibilities
 
-- define the output extension and source layout;
-- map metadata into the format's title page or header;
-- compile or render the source;
-- report missing tools without pretending compilation succeeded;
-- preserve the requirement-to-evidence matrix.
+- Define the output extension and source layout;
+- Map metadata into the format's title page or header;
+- Compile or render the source;
+- Report missing tools without pretending compilation succeeded;
+- Preserve the requirement-to-evidence matrix.
 
 ## Default behavior
 

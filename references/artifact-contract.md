@@ -1,6 +1,6 @@
 # Artifact contract
 
-labflow separates context, implementation, calculations, report sources, and verification.
+Labflow separates context, implementation, calculations, report sources, and verification.
 
 ## Required logical artifacts
 
@@ -21,10 +21,10 @@ Directories are logical, not mandatory. A project may configure different paths 
 
 Every important report claim must point to at least one of:
 
-- an input source;
-- a code file plus execution log;
-- a notebook or calculation script plus output;
-- a generated table or figure;
-- a verification command.
+- An input source;
+- A code file plus execution log;
+- A notebook or calculation script plus output;
+- A generated table or figure;
+- A verification command.
 
 The report must not be the only place where a result exists.

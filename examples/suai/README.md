@@ -7,10 +7,10 @@ They are references to public repositories, not runtime dependencies.
 
 Source example: [pank-suai/course](https://github.com/pank-suai/course)
 
-- kind: `coursework`
-- report format: Typst
-- existing GOST files: `lib/gost.typ`
-- expected workflow: context → coding/design → report → verification
+- Kind: `coursework`
+- Report format: Typst
+- Existing GOST files: `lib/gost.typ`
+- Expected workflow: context → coding/design → report → verification
 
 A larger implementation example is [pank-suai/course-algs](https://github.com/pank-suai/course-algs).
 
@@ -18,9 +18,9 @@ A larger implementation example is [pank-suai/course-algs](https://github.com/pa
 
 Source example: [pank-suai/mat_osn_lab_1](https://github.com/pank-suai/mat_osn_lab_1)
 
-- kind: `lab`
-- subject: mathematical foundations of control systems
-- report format: Typst
-- expected workflow: context → mathematics → report → verification
+- Kind: `lab`
+- Subject: mathematical foundations of control systems
+- Report format: Typst
+- Expected workflow: context → mathematics → report → verification
 
 The examples intentionally share the same core skills but use different phase selections.

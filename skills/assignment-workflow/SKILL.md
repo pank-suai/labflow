@@ -103,7 +103,7 @@ identifying the cause. Do not silently skip a failed compile, test, or calculati
 The workflow is complete only when:
 
 - `context/TASK.md` exists;
-- all required code and mathematics artifacts exist;
-- required commands or notebooks were executed;
-- the report format was compiled or rendered when applicable;
+- All required code and mathematics artifacts exist;
+- Required commands or notebooks were executed;
+- The report format was compiled or rendered when applicable;
 - `VERIFICATION.md` contains no unresolved blocking failure.
