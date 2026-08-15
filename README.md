@@ -13,6 +13,8 @@ Labflow не содержит требований конкретного вуз
 - `labflow-report` — сборка отчёта из проверенных артефактов.
 - `labflow-self-review` — self-review через отдельного subagent.
 - `labflow-typst` — optional skill для создания общей Typst-структуры отчёта.
+- `labflow-guap` — optional skill со спецификой ГУАП, преподавателей и дисциплин.
+- `labflow-guap-mcp` — optional skill для MCP-сервера и CLI личного кабинета ГУАП.
 
 `labflow-self-review` запускается отдельным subagent через `delegate_task` и проверяет покрытие требований, качество кода, математические артефакты и визуальное качество отчёта. Результат сохраняется в `SELF_REVIEW.md`.
 
