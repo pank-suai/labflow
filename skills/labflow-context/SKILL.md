@@ -1,26 +1,26 @@
 ---
-name: assignment-context
-description: Extract requirements and constraints from an assignment.
+name: labflow-context
+description: Extract requirements and constraints from an task.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, requirements, planning, context]
-    related_skills: [assignment-workflow, assignment-self-review]
+    tags: [tasks, requirements, planning, context]
+    related_skills: [labflow, labflow-self-review]
 ---
 
-# Assignment Context
+# Labflow Context
 
-Convert an assignment brief, methodology, or course-project specification into a
+Convert an task brief, methodology, or course-project specification into a
 structured, source-grounded context. This skill discovers what must be done; it
 does not implement the solution or write the final report.
 
 ## When to Use
 
 - Before coding or mathematical work on a lab, practical, or course project.
-- When the assignment is spread across PDFs, images, source files, and user notes.
+- When the task is spread across PDFs, images, source files, and user notes.
 
 ## Procedure
 

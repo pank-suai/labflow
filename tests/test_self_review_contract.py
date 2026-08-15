@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHECKER = ROOT / "skills/assignment-self-review/scripts/check_self_review.py"
+CHECKER = ROOT / "skills/labflow-self-review/scripts/check_self_review.py"
 HEADINGS = "\n".join(
     [
         "## Scope",

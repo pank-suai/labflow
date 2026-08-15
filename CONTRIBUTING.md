@@ -7,8 +7,8 @@ Before committing:
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 optional-skills/typst-report/scripts/init_typst.py --help
+python3 optional-skills/labflow-typst/scripts/init_typst.py --help
 ```
 
 If Typst is installed, compile a generated smoke report and confirm that the PDF
-is non-empty. Do not add real student data or private assignment files.
+is non-empty. Do not add real student data or private task files.

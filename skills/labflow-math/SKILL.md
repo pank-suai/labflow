@@ -1,5 +1,5 @@
 ---
-name: assignment-math
+name: labflow-math
 description: Solve and document reproducible mathematical work.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
@@ -7,14 +7,14 @@ license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, mathematics, numerical-methods, data-analysis]
-    related_skills: [assignment-workflow, assignment-context, assignment-self-review]
+    tags: [tasks, mathematics, numerical-methods, data-analysis]
+    related_skills: [labflow, labflow-context, labflow-self-review]
 ---
 
-# Assignment Mathematics
+# Labflow Mathematics
 
 Perform the mathematical, numerical, statistical, or data-analysis portion of an
-assignment in a reproducible way. Use Jupyter, Python, symbolic algebra, and
+task in a reproducible way. Use Jupyter, Python, symbolic algebra, and
 plotting skills when useful, but do not require one fixed library or notebook format.
 
 ## When to Use
@@ -36,7 +36,7 @@ plotting skills when useful, but do not require one fixed library or notebook fo
 - Do not hide calculations inside a final number.
 - Do not round intermediate values unless the source requires it.
 - Label estimated, simulated, and exact values distinctly.
-- Use the assignment's notation where possible and define any changes.
+- Use the task's notation where possible and define any changes.
 - Never fabricate a graph, table, or numerical result.
 
 ## Output Contract

@@ -1,19 +1,19 @@
 ---
-name: assignment-report
-description: Compose a report from verified assignment artifacts.
+name: labflow-report
+description: Compose a report from verified task artifacts.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, reports, documentation, evidence]
-    related_skills: [assignment-workflow, assignment-context, assignment-coding, assignment-math, assignment-self-review]
+    tags: [tasks, reports, documentation, evidence]
+    related_skills: [labflow, labflow-context, labflow-coding, labflow-math, labflow-self-review]
 ---
 
-# Assignment Report
+# Labflow Report
 
-Compose the requested report from the assignment context and verified artifacts.
+Compose the requested report from the task context and verified artifacts.
 The skill is format-neutral: use a report adapter or an optional formatter skill
 for Typst, LaTeX, DOCX, Markdown, or PDF.
 
@@ -48,10 +48,10 @@ report/requirements-matrix.md
 ```
 
 A compiled artifact such as `report/report.pdf` is required only when the
-assignment explicitly requests it or the selected adapter supports it.
+task explicitly requests it or the selected adapter supports it.
 
 ## Self-Review Handoff
 
 Check that every required section exists, every referenced file exists, and each
 important result points to a saved artifact or execution log. Hand off to
-`assignment-self-review` instead of declaring success yourself.
+`labflow-self-review` instead of declaring success yourself.

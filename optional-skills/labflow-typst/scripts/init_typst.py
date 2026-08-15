@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create the complete Typst project structure from assignment context."""
+"""Create the complete Typst project structure from task context."""
 
 from __future__ import annotations
 

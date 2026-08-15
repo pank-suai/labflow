@@ -1,19 +1,19 @@
 ---
-name: assignment-coding
-description: Implement and test the programming part of an assignment.
+name: labflow-coding
+description: Implement and test the programming part of an task.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, coding, testing, reproducibility]
-    related_skills: [assignment-workflow, assignment-context, assignment-self-review]
+    tags: [tasks, coding, testing, reproducibility]
+    related_skills: [labflow, labflow-context, labflow-self-review]
 ---
 
-# Assignment Coding
+# Labflow Coding
 
-Implement the software portion of an assignment from the structured context.
+Implement the software portion of an task from the structured context.
 Use language-specific, testing, debugging, and data-processing skills when they
 are available. This skill produces executable artifacts and evidence, not prose
 for the final report.
@@ -22,7 +22,7 @@ for the final report.
 
 - The context requires a program, simulation, algorithm, interface, or data pipeline.
 
-Do not use it when the assignment is purely theoretical or computational with no code.
+Do not use it when the task is purely theoretical or computational with no code.
 
 ## Procedure
 

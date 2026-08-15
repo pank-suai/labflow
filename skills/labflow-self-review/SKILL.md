@@ -1,5 +1,5 @@
 ---
-name: assignment-self-review
+name: labflow-self-review
 description: Review code, report appearance, and requirement coverage.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
@@ -7,22 +7,22 @@ license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, self-review, code-quality, visual-review, requirements]
-    related_skills: [assignment-workflow, assignment-context, assignment-coding, assignment-math, assignment-report]
+    tags: [tasks, self-review, code-quality, visual-review, requirements]
+    related_skills: [labflow, labflow-context, labflow-coding, labflow-math, labflow-report]
 ---
 
-# Assignment Self-Review
+# Labflow Self-Review
 
-Review an academic assignment as an independent fresh-agent pass. Check whether
+Review an academic task as an independent fresh-agent pass. Check whether
 the requirements are fulfilled, the code is readable and usable, and the report
 looks correct after rendering. This skill produces findings and a decision; it
 does not silently repair the work it reviews.
 
 ## When to Use
 
-- At the end of every `assignment-workflow` run.
+- At the end of every `labflow` run.
 - After changing code, calculations, report structure, or report formatting.
-- Before presenting a lab, practical assignment, or course project as finished.
+- Before presenting a lab, practical task, or course project as finished.
 
 ## Review Model
 
@@ -34,7 +34,7 @@ was completed.
 Recommended delegation prompt:
 
 ```text
-Review the assignment in <workspace> using assignment-self-review.
+Review the task in <workspace> using labflow-self-review.
 Read context/TASK.md, context/context.yaml, the requirements checklist, source
 files, execution artifacts, and the report. Explicitly review all four dimensions:
 (1) requirement coverage, (2) code quality and behavior, (3) mathematics and
@@ -53,7 +53,7 @@ no fresh subagent was available. This is a fallback, not equivalent evidence.
 
 ### 1. Establish review scope
 
-Read the original assignment source, `context/TASK.md`, `context/context.yaml`,
+Read the original task source, `context/TASK.md`, `context/context.yaml`,
 and `context/requirements-checklist.md`. List every explicit requirement and its
 expected evidence.
 
@@ -85,7 +85,7 @@ and a representative execution when available. Review:
 - correctness at boundaries and failure cases;
 - dead code, placeholders, duplicated logic, and hardcoded data;
 - error handling and user-visible output;
-- consistency with the assignment and language conventions.
+- consistency with the task and language conventions.
 
 Record exact file paths and line numbers for findings. Do not rewrite source files.
 
@@ -180,7 +180,7 @@ been reviewed, and the report has passed visual inspection. Use
 missing input, unavailable tool, or inaccessible source prevents a meaningful review.
 
 The parent agent must validate `SELF_REVIEW.md` with
-`skills/assignment-self-review/scripts/check_self_review.py`. It must fix
+`skills/labflow-self-review/scripts/check_self_review.py`. It must fix
 `changes_requested` findings and launch a new fresh self-review subagent. If the
-review is `blocked`, the parent must resolve the blocker or keep the assignment
+review is `blocked`, the parent must resolve the blocker or keep the task
 blocked. A previous review does not remain valid after changes.

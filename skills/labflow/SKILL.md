@@ -1,44 +1,44 @@
 ---
-name: assignment-workflow
-description: Run a reproducible workflow for academic assignments.
+name: labflow
+description: Run a reproducible workflow for academic tasks.
 version: 0.1.0
 author: Vasilii Pankov (pank-su), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [assignments, labs, coursework, workflow, reproducibility]
-    related_skills: [assignment-context, assignment-coding, assignment-math, assignment-report, assignment-self-review]
+    tags: [tasks, labs, coursework, workflow, reproducibility]
+    related_skills: [labflow-context, labflow-coding, labflow-math, labflow-report, labflow-self-review]
 ---
 
-# Assignment Workflow
+# Labflow
 
-Run a university-agnostic workflow for labs, practical assignments, calculation
+Run a university-agnostic workflow for labs, practical tasks, calculation
 works, and course projects. This skill owns phase ordering, artifact contracts,
 blocking questions, and completion gates; specialist skills own their domains.
 It does not prescribe a university, language, report format, or project template.
 
 ## When to Use
 
-- A user provides a methodology, assignment, course-project brief, or dataset.
+- A user provides a methodology, task, course-project brief, or dataset.
 - A task needs a traceable path from requirements to code, calculations, and report.
 - Existing specialist skills should be reused when available.
 
-Do not use it for a one-line calculation or an isolated code fix with no assignment context.
+Do not use it for a one-line calculation or an isolated code fix with no task context.
 
 ## Prerequisites
 
-- The assignment source and all available input files are present in the workspace.
+- The task source and all available input files are present in the workspace.
 - The workspace is writable.
 - If a required input is missing, record it in `context/open_questions.md` instead of guessing.
 
 ## Phase Selection
 
-1. Always run `assignment-context` first.
-2. Run `assignment-coding` when the context requires software or simulations.
-3. Run `assignment-math` when formulas, numerical methods, statistics, or data analysis are required.
-4. Run `assignment-report` when a report is requested or required.
-5. Always launch a fresh subagent with `assignment-self-review` before claiming completion.
+1. Always run `labflow-context` first.
+2. Run `labflow-coding` when the context requires software or simulations.
+3. Run `labflow-math` when formulas, numerical methods, statistics, or data analysis are required.
+4. Run `labflow-report` when a report is requested or required.
+5. Always launch a fresh subagent with `labflow-self-review` before claiming completion.
 
 Use matching external skills for PDF extraction, a programming language, testing,
 Jupyter, Typst, LaTeX, DOCX, or PDF when they are available. Treat them as
@@ -55,7 +55,7 @@ Completion criterion: every input file has a known path and no source file was m
 
 ### 2. Build the context
 
-Run `assignment-context`. It must produce `context/TASK.md`,
+Run `labflow-context`. It must produce `context/TASK.md`,
 `context/context.yaml`, and `context/open_questions.md`.
 Completion criterion: requirements, constraints, inputs, outputs, and unresolved questions are explicit.
 
@@ -73,24 +73,24 @@ Completion criterion: every required domain result has a reproducible command or
 
 ### 5. Assemble the report
 
-Run `assignment-report`. Choose the requested format through an adapter; do not
+Run `labflow-report`. Choose the requested format through an adapter; do not
 assume Typst, GOST, a title page, or a fixed directory layout.
 Completion criterion: the report references only existing artifacts and contains no invented results.
 
 ### 6. Run the self-review
 
-Use `delegate_task` to launch a fresh subagent with the `assignment-self-review`
+Use `delegate_task` to launch a fresh subagent with the `labflow-self-review`
 skill. Give it the exact workspace path and require four independent review
 dimensions: requirement coverage, code quality and behavior, mathematics and
 artifacts, and visual report appearance. The subagent must write `SELF_REVIEW.md`
 in that workspace.
 
 After delegation, the parent agent must validate the review artifact with
-`skills/assignment-self-review/scripts/check_self_review.py`. Reject a missing,
+`skills/labflow-self-review/scripts/check_self_review.py`. Reject a missing,
 malformed, or misplaced file. If the status is `changes_requested`, fix every
 finding in the responsible phase and launch a new fresh review subagent. If the
 status is `blocked`, resolve the missing input or tool, ask the user when needed,
-or keep the assignment blocked. Never claim completion while it remains blocked.
+or keep the task blocked. Never claim completion while it remains blocked.
 
 Generated PDFs, rendered images, test outputs, notebook caches, and logs may be
 written under a temporary directory or `artifacts/self-review/`. The subagent
@@ -104,10 +104,10 @@ the literal line `Final Status: passed`.
 ## Rules
 
 - Do not invent missing values, variants, execution results, or citations.
-- Prefer the assignment source and user-provided data over general knowledge.
+- Prefer the task source and user-provided data over general knowledge.
 - Keep planning, implementation, mathematics, writing, and self-review separate.
 - Preserve raw outputs so important claims can be checked.
-- Do not call an assignment complete without real execution and self-review output.
+- Do not call a task complete without real execution and self-review output.
 - Never overwrite user files without an explicit reason and a recoverable copy.
 - If a specialist skill has stronger domain rules, follow those rules inside its phase.
 

@@ -6,29 +6,29 @@ Labflow не содержит требований конкретного вуз
 
 ## Skills
 
-- `assignment-workflow` — общий orchestrator.
-- `assignment-context` — извлечение задачи, ограничений и deliverables.
-- `assignment-coding` — реализация программной части.
-- `assignment-math` — воспроизводимые вычисления, формулы, графики и таблицы.
-- `assignment-report` — сборка отчёта из проверенных артефактов.
-- `assignment-self-review` — self-review через отдельного subagent.
-- `typst-report` — optional skill для создания общей Typst-структуры отчёта.
+- `labflow` — общий workflow.
+- `labflow-context` — извлечение задачи, ограничений и deliverables.
+- `labflow-coding` — реализация программной части.
+- `labflow-math` — воспроизводимые вычисления, формулы, графики и таблицы.
+- `labflow-report` — сборка отчёта из проверенных артефактов.
+- `labflow-self-review` — self-review через отдельного subagent.
+- `labflow-typst` — optional skill для создания общей Typst-структуры отчёта.
 
-`assignment-self-review` запускается отдельным subagent через `delegate_task` и проверяет покрытие требований, качество кода, математические артефакты и визуальное качество отчёта. Результат сохраняется в `SELF_REVIEW.md`.
+`labflow-self-review` запускается отдельным subagent через `delegate_task` и проверяет покрытие требований, качество кода, математические артефакты и визуальное качество отчёта. Результат сохраняется в `SELF_REVIEW.md`.
 
 ## Базовый запуск
 
 1. Загрузить методичку и исходные данные в проект.
-2. Запустить `assignment-workflow`.
-3. Передать полученный контекст в `typst-report`, если требуется Typst-отчёт.
+2. Запустить `labflow`.
+3. Передать полученный контекст в `labflow-typst`, если требуется Typst-отчёт.
 4. Получить код, вычисления, отчёт и `SELF_REVIEW.md`.
 
 ## Typst
 
-`typst-report` не просит агента придумывать структуру проекта и не принимает метаданные отдельными флагами. Он получает полный контекст задания и сам создаёт всю структуру Typst-проекта:
+`labflow-typst` не просит агента придумывать структуру проекта и не принимает метаданные отдельными флагами. Он получает полный контекст задания и сам создаёт всю структуру Typst-проекта:
 
 ```bash
-python optional-skills/typst-report/scripts/init_typst.py \
+python optional-skills/labflow-typst/scripts/init_typst.py \
   --context context/context.yaml \
   --output-dir .
 ```

@@ -1,5 +1,5 @@
 ---
-name: typst-report
+name: labflow-typst
 description: Generate a complete context-driven Typst report structure.
 version: 0.2.0
 author: Vasilii Pankov (pank-su), Hermes Agent
@@ -7,27 +7,27 @@ license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [typst, reports, gost, assignments, templates]
-    related_skills: [assignment-context, assignment-report, assignment-self-review]
+    tags: [typst, reports, gost, tasks, templates]
+    related_skills: [labflow-context, labflow-report, labflow-self-review]
 ---
 
 # Typst Report
 
 Optional report adapter for labflow. It uses one shared Typst structure derived
 from a course project and a mathematical foundations lab. The initializer reads
-the assignment context and creates the complete project skeleton; the agent does
+the task context and creates the complete project skeleton; the agent does
 not invent title-page metadata, directories, or section names.
 
 ## When to Use
 
-- The assignment requests a Typst report.
+- The task requests a Typst report.
 - A project needs a repeatable GOST-style baseline without a university-specific template.
 
 Do not use it when an institutional template is explicitly required and must be preserved.
 
 ## Prerequisites
 
-- `context/context.yaml` created by `assignment-context`.
+- `context/context.yaml` created by `labflow-context`.
 - Python 3.10+ for the initializer script.
 - Typst CLI for compilation; initialization itself does not require Typst.
 
@@ -36,7 +36,7 @@ Do not use it when an institutional template is explicitly required and must be 
 Run the initializer from the project root through the `terminal` tool:
 
 ```bash
-python optional-skills/typst-report/scripts/init_typst.py \
+python optional-skills/labflow-typst/scripts/init_typst.py \
   --context context/context.yaml \
   --output-dir .
 ```
@@ -71,12 +71,12 @@ tests/
 
 ## Procedure
 
-1. Run `assignment-context` and resolve blocking questions first.
+1. Run `labflow-context` and resolve blocking questions first.
 2. Run `init_typst.py --context context/context.yaml --output-dir .`.
 3. Fill `docs/content.typ` from `context/TASK.md`, code, mathematics, and real artifacts.
 4. Keep `docs/lib/context.typ`, `gost.typ`, and `titlepage.typ` as generated infrastructure unless the adapter itself must be extended.
 5. Compile the report with Typst.
-6. Pass the complete project to `assignment-self-review` for code, requirements, mathematics, and visual review.
+6. Pass the complete project to `labflow-self-review` for code, requirements, mathematics, and visual review.
 
 Completion criterion: the script creates every listed directory and file from the
 context, and the generated report compiles after its explicit placeholders are filled.
