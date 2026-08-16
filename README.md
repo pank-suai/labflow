@@ -19,13 +19,7 @@ npx skills add pank-su/labflow --copy
 ```
 
 Установщик покажет найденные skills и доступные harness’ы. Выбери нужные
-компоненты, выбери область установки и подтверди действие через `yes`.
-
-Для Hermes установи основной workflow:
-
-```bash
-hermes skills install https://raw.githubusercontent.com/pank-su/labflow/main/skills/labflow/SKILL.md --name labflow
-```
+компоненты, область установки и подтверди действие через `yes`.
 
 Typst-адаптер устанавливается отдельно, когда он нужен. Полные варианты для
 разных harness’ов собраны в [`INSTALL.md`](INSTALL.md).
