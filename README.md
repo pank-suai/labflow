@@ -1,62 +1,84 @@
-# Labflow
+# labflow
 
-Универсальный workflow для лабораторных, практических и курсовых работ.
+**Универсальный workflow для лабораторных, практических и курсовых работ.**
 
-Labflow не содержит требований конкретного вуза, языка программирования или формата отчёта. Он разделяет работу на независимые этапы и позволяет подключать внешние skills и report adapters.
+`labflow` помогает пройти путь от методички до проверенного результата:
+извлечь требования, реализовать программную или математическую часть, собрать
+отчёт и провести self-review.
 
-Установка для Hermes, Claude Code, Codex CLI и OpenCode описана в
-[`INSTALL.md`](INSTALL.md).
+Репозиторий не содержит правил конкретного вуза. Универсальное ядро можно
+дополнять отдельными domain-specific skills, например
+[`guap-skill`](https://github.com/pank-su/guap-skill).
 
-## Skills
+## Установка
 
-- `labflow` — общий workflow.
-- `labflow-context` — извлечение задачи, ограничений и deliverables.
-- `labflow-coding` — реализация программной части.
-- `labflow-math` — воспроизводимые вычисления, формулы, графики и таблицы.
-- `labflow-report` — сборка отчёта из проверенных артефактов.
-- `labflow-self-review` — self-review через отдельного subagent.
-- `labflow-typst` — optional skill для создания общей Typst-структуры отчёта.
+Для Claude Code, Codex CLI и OpenCode запусти из каталога проекта:
 
-`labflow-self-review` запускается отдельным subagent через `delegate_task` и проверяет покрытие требований, качество кода, математические артефакты и визуальное качество отчёта. Результат сохраняется в `SELF_REVIEW.md`.
+```bash
+npx skills add pank-su/labflow --copy
+```
 
-## Базовый запуск
+Установщик покажет найденные skills и доступные harness’ы. Выбери нужные
+компоненты, выбери область установки и подтверди действие через `yes`.
 
-1. Загрузить методичку и исходные данные в проект.
-2. Запустить `labflow`.
-3. Передать полученный контекст в `labflow-typst`, если требуется Typst-отчёт.
-4. Получить код, вычисления, отчёт и `SELF_REVIEW.md`.
+Для Hermes установи основной workflow:
+
+```bash
+hermes skills install https://raw.githubusercontent.com/pank-su/labflow/main/skills/labflow/SKILL.md --name labflow
+```
+
+Typst-адаптер устанавливается отдельно, когда он нужен. Полные варианты для
+разных harness’ов собраны в [`INSTALL.md`](INSTALL.md).
+
+## Основные skills
+
+- `labflow` — общий workflow от задания до результата;
+- `labflow-context` — требования, ограничения и deliverables;
+- `labflow-coding` — программная часть и тесты;
+- `labflow-math` — воспроизводимые вычисления, формулы и графики;
+- `labflow-report` — отчёт из проверенных артефактов;
+- `labflow-self-review` — проверка требований, кода, математики и оформления;
+- `labflow-typst` — отдельный адаптер для Typst-отчётов.
+
+## Как работает workflow
+
+1. Агент читает методичку, исходные данные и текущий контекст.
+2. Выделяет требования и проверяемые результаты.
+3. Создаёт код, вычисления и артефакты в понятной структуре проекта.
+4. Собирает отчёт и проверяет его по исходным требованиям.
+
+`labflow` не придумывает метаданные титульного листа, требования преподавателя
+или правила сдачи. Такие сведения должны приходить из задания, методички или
+подключённого вузовского skill.
 
 ## Typst
 
-`labflow-typst` не просит агента придумывать структуру проекта и не принимает метаданные отдельными флагами. Он получает полный контекст задания и сам создаёт всю структуру Typst-проекта:
-
-```bash
-python skills/labflow-typst/scripts/init_typst.py \
-  --context context/context.yaml \
-  --output-dir .
-```
-
-Скрипт создаёт:
+`labflow-typst` создаёт структуру отчёта из контекста задания и не требует
+передавать метаданные отдельными флагами. Скрипт и шаблоны находятся внутри
+самого skill:
 
 ```text
-docs/
-├── index.typ
-├── content.typ
-└── lib/
-    ├── context.typ
-    ├── gost.typ
-    └── titlepage.typ
-
-artifacts/
-data/
-images/
-math/
-src/
-tests/
+skills/labflow-typst/
+├── SKILL.md
+├── scripts/init_typst.py
+└── templates/gost/
 ```
 
-`gost.typ` и `titlepage.typ` построены на общей структуре из курсового проекта и лабораторной по математическим основам систем управления. Конкретные данные берутся только из `context/context.yaml`.
+## Структура репозитория
 
-## License
+```text
+skills/
+├── labflow/
+├── labflow-context/
+├── labflow-coding/
+├── labflow-math/
+├── labflow-report/
+├── labflow-self-review/
+└── labflow-typst/
+```
+
+Промпт для генерации баннера: [`assets/banner-prompt.md`](assets/banner-prompt.md).
+
+## Лицензия
 
 MIT
