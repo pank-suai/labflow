@@ -7,7 +7,7 @@ Before committing:
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 optional-skills/labflow-typst/scripts/init_typst.py --help
+python3 skills/labflow-typst/scripts/init_typst.py --help
 ```
 
 If Typst is installed, compile a generated smoke report and confirm that the PDF

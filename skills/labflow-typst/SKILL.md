@@ -35,8 +35,12 @@ Do not use it when an institutional template is explicitly required and must be 
 
 Run the initializer from the project root through the `terminal` tool:
 
+The checkout command below uses the repository path. After installation, resolve
+the directory containing this `SKILL.md` as `<skill-root>` and run
+`scripts/init_typst.py` from that skill directory.
+
 ```bash
-python optional-skills/labflow-typst/scripts/init_typst.py \
+python skills/labflow-typst/scripts/init_typst.py \
   --context context/context.yaml \
   --output-dir .
 ```

@@ -4,6 +4,9 @@
 
 Labflow не содержит требований конкретного вуза, языка программирования или формата отчёта. Он разделяет работу на независимые этапы и позволяет подключать внешние skills и report adapters.
 
+Установка для Hermes, Claude Code, Codex CLI и OpenCode описана в
+[`INSTALL.md`](INSTALL.md).
+
 ## Skills
 
 - `labflow` — общий workflow.
@@ -28,7 +31,7 @@ Labflow не содержит требований конкретного вуз
 `labflow-typst` не просит агента придумывать структуру проекта и не принимает метаданные отдельными флагами. Он получает полный контекст задания и сам создаёт всю структуру Typst-проекта:
 
 ```bash
-python optional-skills/labflow-typst/scripts/init_typst.py \
+python skills/labflow-typst/scripts/init_typst.py \
   --context context/context.yaml \
   --output-dir .
 ```

@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "optional-skills/labflow-typst/scripts/init_typst.py"
+SCRIPT = ROOT / "skills/labflow-typst/scripts/init_typst.py"
 
 
 CONTEXT = """
