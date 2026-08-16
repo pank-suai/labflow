@@ -6,7 +6,9 @@ package build step.
 
 ## Claude Code, Codex CLI, and OpenCode
 
-Install the core workflow globally:
+Install the core workflow globally. Leave out `--agent` and `--yes`: `npx skills`
+will show the available harnesses, let the user select one or more targets, and
+ask for an explicit confirmation before copying files.
 
 ```bash
 npx skills add pank-su/labflow \
@@ -17,11 +19,7 @@ npx skills add pank-su/labflow \
   --skill labflow-report \
   --skill labflow-self-review \
   --global \
-  --copy \
-  --agent claude-code \
-  --agent codex \
-  --agent opencode \
-  --yes
+  --copy
 ```
 
 Install the optional Typst adapter when reports need it:
@@ -30,11 +28,7 @@ Install the optional Typst adapter when reports need it:
 npx skills add pank-su/labflow \
   --skill labflow-typst \
   --global \
-  --copy \
-  --agent claude-code \
-  --agent codex \
-  --agent opencode \
-  --yes
+  --copy
 ```
 
 For a project-local installation, run the same commands from the project root and
@@ -78,7 +72,7 @@ hermes skills list
 Install `labflow` first, then install the separate GUAP skill:
 
 ```bash
-npx skills add pank-su/guap-skill --skill guap-pro --global --copy --agent claude-code --agent codex --agent opencode --yes
+npx skills add pank-su/guap-skill --skill guap-pro --global --copy
 hermes skills install https://raw.githubusercontent.com/pank-su/guap-skill/main/skills/guap-pro/SKILL.md --name guap-pro
 ```
 
