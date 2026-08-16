@@ -21,8 +21,8 @@ npx skills add pank-su/labflow --copy
 Установщик покажет найденные skills и доступные harness’ы. Выбери нужные
 компоненты, область установки и подтверди действие через `yes`.
 
-Typst-адаптер устанавливается отдельно, когда он нужен. Полные варианты для
-разных harness’ов собраны в [`INSTALL.md`](INSTALL.md).
+Typst-адаптер устанавливается отдельно, когда он нужен: его можно выбрать в
+интерактивном списке `npx skills`.
 
 ## Основные skills
 
@@ -70,8 +70,6 @@ skills/
 ├── labflow-self-review/
 └── labflow-typst/
 ```
-
-Промпт для генерации баннера: [`assets/banner-prompt.md`](assets/banner-prompt.md).
 
 ## Лицензия
 
